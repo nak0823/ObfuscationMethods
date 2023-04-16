@@ -6,7 +6,8 @@ namespace Satfuscator.Protections
     {
         public static void Execute(Context ctx)
         {
-            // The code is an implementation of the AntiIldasm protection, which prevents disassembly of .NET assemblies using tools like Ildasm. This specific method is called when the protection is executed and it iterates over each module in the assembly to add a custom attribute that marks the module as SuppressIldasm
+            // The code is an implementation of the AntiIldasm protection, which prevents disassembly of .NET assemblies using tools like Ildasm. 
+            // This specific method is called when the protection is executed and it iterates over each module in the assembly to add a custom attribute that marks the module as SuppressIldasm
 
             foreach (ModuleDefMD module in ctx.assemblyDef.Modules)
             {
