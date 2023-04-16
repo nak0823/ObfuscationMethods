@@ -1,6 +1,10 @@
-﻿using dnlib.DotNet;
+using dnlib.DotNet;
 
-public static void Execute(Context ctx)
+namespace Protector.Protections
+{
+    internal class Watermark
+    {
+        public static void Execute(Context ctx)
         {
             // The code modifies the metadata of the input assembly by changing the assembly name, module name, and assembly attributes, including the version number, title, description, company, product, and trademark.
             // Specifically, it changes the assembly description, company name, and product name attributes to reflect the use of your assembly. This is achieved using the dnlib library to access and modify the metadata of the assembly.
@@ -32,3 +36,5 @@ public static void Execute(Context ctx)
             asmAttribs = ctx.moduleDef.Assembly.CustomAttributes.Find("System.Reflection.AssemblyTrademarkAttribute");
             asmAttribs.ConstructorArguments[0] = new CAArgument(ctx.moduleDef.CorLibTypes.String, new UTF8String("")); // Trademark attribute
         }
+    }
+}
